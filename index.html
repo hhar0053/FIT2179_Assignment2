@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>
+      Education and Employment in Australia
+    </title>
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/vega@5">
+  </script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5">
+  </script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6">
+  </script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>
+        Mapping Australia's Education and Employment Gap
+      </h1>
+      <p>
+        This visualisation explores how education levels and employment outcomes
+        differ across
+        Australian states, territories, and regions.
+      </p>
+    </header>
+    <main>
+      <section class="section">
+        <h2>
+          Labour Market Overview
+        </h2>
+        <div class="chart-grid-2">
+          <div class="chart-card">
+            <h3>
+              State and Territory Unemployment Comparison (December 2025)
+            </h3>
+            <p>
+              This bar chart provides a broad overview of unemployment rates
+              across Australian states and
+              territories using the December 2025 Small Area Labour Markets
+              data. It introduces the
+              overall labour market differences before exploring smaller
+              regional patterns.
+            </p>
+            <p>
+              The chart shows that unemployment rates differ across states and
+              territories, with Victoria
+              recording the highest unemployment rate and the Australian Capital
+              Territory recording the
+              lowest in this dataset. However, the differences between most
+              states and territories are
+              relatively small, suggesting that the broad state-level picture
+              does not fully explain where
+              unemployment pressure is concentrated.
+            </p>
+            <p>
+              This means that state-level comparison is useful as a starting
+              point, but it can smooth out
+              local differences. To better understand unemployment patterns, the
+              analysis needs to move
+              from broad state averages to smaller regional areas within each
+              state.
+            </p>
+            <div id="graph2">
+            </div>
+          </div>
+          <div class="chart-card">
+            <h3>
+              Australia's Unemployment Trend Over Time
+            </h3>
+            <p>
+              This line chart shows how Australia's unemployment rate changed
+              from December 2010 to
+              December 2025 using quarterly Small Area Labour Markets data.
+              After comparing unemployment
+              across states and regions, this chart adds a time-based
+              perspective to show whether
+              unemployment has generally increased, decreased, or remained
+              stable.
+            </p>
+            <p>
+              The trend shows that unemployment has fluctuated over time rather
+              than following one
+              constant direction. Although the unemployment rate in December
+              2025 is lower than in
+              December 2010, the pattern is not a smooth decline. There are
+              periods where unemployment
+              rises and falls, suggesting that labour-market conditions change
+              over time.
+            </p>
+            <p>
+              The key conclusion is that unemployment should be understood
+              through both geography and
+              time. The state and regional charts show where unemployment
+              differs, while this line chart
+              shows that the national labour market also changes across
+              different periods.
+            </p>
+            <div id="graph3">
+            </div>
+          </div>
+        </div>
+        <div class="chart-full">
+          <div class="chart-card">
+            <h3>
+              Regional Unemployment Across Australia (December 2025)
+            </h3>
+            <p>
+              This map builds on the state-level comparison by showing
+              unemployment rates across SA2
+              regions in Australia. The state filter allows users to select one
+              state or territory at a
+              time and explore how unemployment varies between smaller local
+              areas.
+            </p>
+            <p>
+              The map shows that unemployment becomes more uneven when it is
+              viewed at a smaller
+              geographic level. Some SA2 regions have higher unemployment rates
+              than nearby regions within
+              the same state, suggesting that labour market disadvantage is
+              often concentrated locally
+              rather than spread evenly across the whole state.
+            </p>
+            <p>
+              This reveals why the state-level chart alone is not enough. A
+              state may appear to have a
+              moderate unemployment rate overall, but the regional map can show
+              specific local communities
+              with noticeably higher unemployment. Therefore, combining
+              state-level and regional-level
+              visualisations gives a clearer picture of labour market inequality
+              in Australia.
+            </p>
+            <div id="graph1">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <h2>
+          Labour Force Participation and Workforce Activity
+        </h2>
+        <div class="chart-grid-2">
+          <div class="chart-card">
+            <h3>
+              Labour Force Participation Trend in Australia
+            </h3>
+            <p>
+              This line chart shows Australia's labour force participation rate
+              from March 2016 to March
+              2026. Participation rate measures the share of people who are
+              active in the labour market,
+              either by working or looking for work.
+            </p>
+            <p>
+              The chart shows that Australia's participation rate generally
+              increased over the period,
+              rising from around 64.9% in March 2016 to around 66.8% in March
+              2026. This suggests that a
+              larger share of the population became active in the labour market
+              over time.
+            </p>
+            <p>
+              This is important because unemployment rate alone does not show
+              the full labour market
+              condition. A region or country can have a low unemployment rate,
+              but if participation is
+              also low, it may mean many people are not actively looking for
+              work. By comparing
+              unemployment with participation, the analysis gives a more
+              complete view of workforce
+              activity in Australia.
+            </p>
+            <div id="graph4">
+            </div>
+          </div>
+          <div class="chart-card">
+            <h3>
+              Employment Indicators by State and Territory (December 2025)
+            </h3>
+            <p>
+              This heatmap compares multiple labour market indicators across
+              Australian states and
+              territories in December 2025, including unemployment rate,
+              participation rate,
+              employment-to-population ratio, and underemployment rate. Instead
+              of focusing on one measure
+              only, this graph provides a broader view of workforce activity and
+              labour market strength.
+            </p>
+            <p>
+              The heatmap shows that labour market performance can look
+              different depending on which
+              indicator is used. A state may appear stronger when looking only
+              at unemployment rate, but
+              the picture can change when participation rate,
+              employment-to-population ratio, and
+              underemployment rate are also considered.
+            </p>
+            <p>
+              The key conclusion is that stronger labour market conditions are
+              not defined by one number
+              alone. They are better understood through a combination of lower
+              unemployment, higher
+              participation, higher employment-to-population ratio, and lower
+              underemployment. This makes
+              the heatmap useful for comparing whether a state performs
+              consistently well across several
+              indicators or only looks strong in one area.
+            </p>
+            <div id="graph5">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <h2>
+          Education and Qualification Profile
+        </h2>
+        <div class="chart-centered">
+          <div class="chart-card">
+            <h3>
+              Bachelor Degree Attainment by State and Territory (2025)
+            </h3>
+            <p>
+              This lollipop chart compares the proportion of people aged 15-74
+              years with a bachelor
+              degree or above across Australian states and territories in 2025.
+              It marks the beginning of
+              the education-focused section by showing how university-level
+              qualification attainment
+              differs across Australia.
+            </p>
+            <p>
+              The chart shows a clear gap in bachelor degree attainment between
+              states and territories.
+              The Australian Capital Territory has the highest proportion of
+              people with a bachelor degree
+              or above, at 46.3%, while Tasmania has the lowest, at 27.3%.
+              Victoria and New South Wales
+              also record relatively high proportions compared with several
+              other states.
+            </p>
+            <p>
+              This suggests that university-level education is not distributed
+              evenly across Australia.
+              Some states and territories have a much larger share of
+              degree-qualified residents than
+              others, which may reflect differences in workforce composition,
+              access to higher education,
+              and the concentration of professional or knowledge-based
+              employment.
+            </p>
+            <p>
+              The key conclusion is that education profiles vary substantially
+              across Australia. This
+              matters for the wider story because differences in educational
+              attainment may help explain
+              why labour market outcomes also vary between places, which will be
+              explored further in the
+              later visualisations.
+            </p>
+            <div id="graph6">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <h2>
+          Relationship Between Education and Employment
+        </h2>
+        <div class="chart-centered">
+          <div class="chart-card">
+            <h3>
+              Labour Force Status by Qualification Type (2025)
+            </h3>
+            <p>
+              This 100% stacked bar chart compares the labour force status of
+              Australians aged 15-74 years
+              in 2025 across three qualification groups: people with a bachelor
+              degree, people with a
+              Certificate III/IV qualification, and people without a non-school
+              qualification. Each bar
+              shows the proportion who are employed full-time, employed
+              part-time, unemployed, or not in
+              the labour force.
+            </p>
+            <p>
+              The chart shows that people with higher qualifications are more
+              likely to be employed
+              full-time. Around 61.0% of people with a bachelor degree are
+              employed full-time, compared
+              with 57.8% of those with a Certificate III/IV qualification and
+              only 33.0% of those without
+              a non-school qualification.
+            </p>
+            <p>
+              The opposite pattern appears for people who are not in the labour
+              force. Only 15.5% of
+              bachelor degree holders are outside the labour force, compared
+              with 20.2% of Certificate
+              III/IV holders and 38.1% of people without a non-school
+              qualification. This suggests that
+              lower qualification levels are associated with weaker attachment
+              to the workforce.
+            </p>
+            <p>
+              The key conclusion is that education level appears closely related
+              to labour market
+              participation and employment outcomes. People with a bachelor
+              degree or Certificate III/IV
+              are much more likely to be in full-time work, while people without
+              a non-school
+              qualification are more likely to be outside the labour force or
+              unemployed. This strengthens
+              the wider story that education and qualifications play an
+              important role in shaping
+              employment opportunities in Australia.
+            </p>
+            <div id="graph7">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <h2>
+          Industry Opportunities and Labour Demand
+        </h2>
+        <div class="chart-full">
+          <div class="chart-card">
+            <h3>
+              Industry Employment vs Median Weekly Full-time earnings
+            </h3>
+            <p>
+              This butterfly chart compares the ten largest employing industries
+              in Australia in 2025 with
+              their median weekly full-time earnings. The left side shows the
+              number of employed people in
+              each industry, while the right side shows the median weekly
+              earnings of full-time employees.
+              The dashed line marks the all-industries median weekly full-time
+              earnings of $1,741.
+            </p>
+            <p>
+              The chart shows that industries with the largest workforces are
+              not always the
+              highest-paying industries. Health Care and Social Assistance is
+              the largest employing
+              industry, followed by Professional, Scientific and Technical
+              Services, Construction, Retail
+              Trade, and Education and Training. However, their earnings levels
+              differ substantially.
+            </p>
+            <p>
+              Professional, Scientific and Technical Services records median
+              weekly full-time earnings
+              well above the all-industries median, while Retail Trade and
+              Accommodation and Food Services
+              employ large numbers of people but sit noticeably below the median
+              earnings benchmark.
+              Health Care and Social Assistance has the largest workforce among
+              the industries shown, yet
+              its median weekly full-time earnings are slightly below the
+              all-industries median.
+            </p>
+            <p>
+              The key conclusion is that industry size and earning potential do
+              not always move together .
+              Some industries provide a large number of employment opportunities
+              but lower typical
+              full-time earnings, while others employ fewer people yet offer
+              higher pay. This suggests
+              that job opportunities should be assessed not only by how many
+              roles an industry supports,
+              but also by the income outcomes it tends to provide.
+            </p>
+            <div id="graph8">
+            </div>
+          </div>
+        </div>
+        <div class="chart-full">
+          <div class="chart-card">
+            <h3>
+              Employment Change Across the 10 Largest Industries
+            </h3>
+            <p>
+              The chart shows that employment growth was not evenly distributed
+              across major industries.
+              Health Care and Social Assistance recorded the largest absolute
+              increase, growing by about
+              117,700 employed people. Professional, Scientific and Technical
+              Services also experienced
+              strong growth, increasing by about 87,400 workers. This suggests
+              that service-based and
+              knowledge-intensive industries were important drivers of
+              employment expansion over the
+              period.
+            </p>
+            <p>
+              In contrast, Manufacturing experienced a decline of around 28,500
+              employed people, while
+              Accommodation and Food Services recorded a smaller fall.
+              Construction and Retail Trade,
+              despite being among the largest employing industries, changed only
+              slightly between 2024 and
+              2025.
+            </p>
+            <p>
+              The key conclusion is that industry size does not necessarily
+              indicate employment momentum.
+              Some of Australia's largest industries are continuing to expand
+              strongly, while others are
+              remaining relatively stable or declining. This adds to the
+              previous graph by showing that
+              industry opportunities should be considered not only in terms of
+              current workforce size and
+              earnings, but also in terms of whether employment is growing over
+              time.
+            </p>
+            <div id="graph9">
+            </div>
+          </div>
+        </div>
+        <div class="chart-full">
+          <div class="chart-card">
+            <h3>
+              Industry Workforce Size vs Job Vacancy Pressure (2025)
+            </h3>
+            <p>
+              The chart shows that industries with the largest workforces do not
+              always experience the
+              highest vacancy pressure. Health Care and Social Assistance has by
+              far the largest workforce
+              and a large number of vacancies, but its vacancy pressure sits
+              only slightly above the
+              all-industries benchmark. In contrast, Administrative and Support
+              Services has a much
+              smaller workforce but the highest vacancy pressure, at around 63
+              vacancies per 1,000
+              employed people.
+            </p>
+            <p>
+              Accommodation and Food Services also stands out with relatively
+              high vacancy pressure,
+              despite employing far fewer people than Health Care and Social
+              Assistance. This suggests
+              that some industries may face stronger hiring demand relative to
+              their workforce size, even
+              if they are not among the largest employers overall.
+            </p>
+            <p>
+              The key conclusion is that job opportunity should not be judged
+              only by industry size . A
+              large workforce can indicate many existing jobs, but vacancy
+              pressure reveals how actively
+              an industry may still be seeking additional workers. Looking at
+              both measures together
+              provides a more complete view of labour demand across Australian
+              industries.
+            </p>
+            <div id="graph10">
+            </div>
+          </div>
+        </div>
+        <div class="chart-full">
+          <div class="chart-card">
+            <h3>
+              Industry Opportunity Profile Across Earnings, Vacancy Pressure and
+              Workforce Size (2025)
+            </h3>
+            <p>
+              The chart shows that no single industry ranks highest across all
+              three measures.
+              Professional, Scientific and Technical Services ranks first for
+              median weekly earnings and
+              remains relatively strong in both vacancy pressure and workforce
+              size. Health Care and
+              Social Assistance ranks first for workforce size and also performs
+              strongly in vacancy
+              pressure, but it does not lead on earnings.
+            </p>
+            <p>
+              Other industries show clear trade-offs. Accommodation and Food
+              Services ranks first for
+              vacancy pressure, indicating relatively strong hiring demand
+              compared with its workforce
+              size, but it ranks near the bottom for median weekly earnings.
+              Manufacturing also ranks
+              highly for vacancy pressure, yet sits lower in workforce size and
+              only mid-range in
+              earnings.
+            </p>
+            <p>
+              The key conclusion is that industry opportunity depends on which
+              outcome is being
+              prioritised . Some industries stand out for pay, others for hiring
+              demand, and others for
+              the scale of existing employment. Looking across all three
+              indicators together provides a
+              more balanced view than judging industries from a single measure
+              alone.
+            </p>
+            <div id="graph11">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="conclusion">
+        <h2>
+          So, What Shapes Employment Opportunities in Australia?
+        </h2>
+        <p>
+          Overall, the visualisations suggest that employment opportunities in
+          Australia are shaped by
+          a combination of location, education, and industry conditions.
+          Unemployment and workforce
+          participation vary across places, qualifications are associated with
+          stronger labour force
+          outcomes, and industries differ in their size, earnings, growth, and
+          hiring demand. This
+          shows that opportunity cannot be judged from one measure alone, but
+          needs to be understood
+          through the broader labour market context.
+        </p>
+      </section>
+      <section class="data-sources">
+        <h2>
+          Data Sources
+        </h2>
+        <ul>
+          <li>
+            Department of Employment and Workplace Relations. (2026).
+            <em>
+              Small Area Labour Markets - December Quarter 2025
+            </em>
+            .
+            Available at:
+            <a
+              href="https://www.dewr.gov.au/employment-research/small-area-labour-markets"
+              target="_blank">
+              https://www.dewr.gov.au/employment-research/small-area-labour-markets
+            </a>
+          </li>
+          <li>
+            Australian Bureau of Statistics. (2021).
+            <em>
+              Australian Statistical Geography Standard (ASGS) Edition 3: SA2
+              Digital Boundary Files
+            </em>
+            .
+            Available at:
+            <a
+              href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/access-and-downloads/digital-boundary-files"
+              target="_blank">
+              https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/access-and-downloads/digital-boundary-files
+            </a>
+          </li>
+          <li>
+            Australian Bureau of Statistics. (2025).
+            <em>
+              Education and Work, Australia, May 2025
+            </em>
+            .
+            Available at:
+            <a
+              href="https://www.abs.gov.au/statistics/people/education/education-and-work-australia/latest-release"
+              target="_blank">
+              https://www.abs.gov.au/statistics/people/education/education-and-work-australia/latest-release
+            </a>
+          </li>
+          <li>
+            Australian Bureau of Statistics. (2025).
+            <em>
+              Employee Earnings, August 2025
+            </em>
+            .
+            Available at:
+            <a
+              href="https://www.abs.gov.au/statistics/labour/earnings-and-working-conditions/employee-earnings/aug-2025"
+              target="_blank">
+              https://www.abs.gov.au/statistics/labour/earnings-and-working-conditions/employee-earnings/aug-2025
+            </a>
+          </li>
+          <li>
+            Australian Bureau of Statistics. (2025).
+            <em>
+              Job Vacancies, Australia, August 2025
+            </em>
+            .
+            Available at:
+            <a
+              href="https://www.abs.gov.au/statistics/labour/jobs/job-vacancies-australia/aug-2025"
+              target="_blank">
+              https://www.abs.gov.au/statistics/labour/jobs/job-vacancies-australia/aug-2025
+            </a>
+          </li>
+          <li>
+            Australian Bureau of Statistics. (2025).
+            <em>
+              Labour Force, Australia, Detailed, August 2025
+            </em>
+            .
+            Available at:
+            <a
+              href="https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia-detailed/aug-2025"
+              target="_blank">
+              https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia-detailed/aug-2025
+            </a>
+          </li>
+          <li>
+            Australian Bureau of Statistics. (2026).
+            <em>
+              Labour Force, Australia, March 2026
+            </em>
+            .
+            Available at:
+            <a
+              href="https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/latest-release"
+              target="_blank">
+              https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/latest-release
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <script src="script.js">
+  </script>
+  </body>
+</html>

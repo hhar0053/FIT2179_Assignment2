@@ -1,0 +1,221 @@
+body {
+  margin: 0;
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 400;
+  background-color: #f6f7f9;
+  color: #222;
+  line-height: 1.6;
+}
+
+.hero {
+  background-color: #1f2937;
+  color: white;
+  padding: 60px 12%;
+  text-align: center;
+}
+
+.hero h1 {
+  margin-bottom: 16px;
+  font-size: 42px;
+}
+
+.hero p {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 18px;
+}
+
+main {
+  width: min(1500px, 92%);
+  margin: 40px auto;
+}
+
+.section,
+section {
+  margin-bottom: 70px;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+}
+
+h2 {
+  border-left: 6px solid #1f2937;
+  padding-left: 14px;
+  margin-bottom: 22px;
+}
+
+.chart-card {
+  background-color: white;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.chart-card h3 {
+  margin-top: 0;
+}
+
+.chart-card p,
+.section p,
+.conclusion p {
+  color: #555;
+  text-align: justify;
+}
+
+.chart-card div {
+  margin-top: 20px;
+}
+
+.chart-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  align-items: stretch;
+  margin-top: 30px;
+}
+
+.chart-full {
+  margin-top: 32px;
+}
+
+.chart-centered {
+  max-width: 1080px;
+  margin: 32px auto 0;
+}
+
+.chart-full .chart-card,
+.chart-centered .chart-card,
+.chart-grid-2 .chart-card {
+  margin-top: 0;
+}
+
+.chart-card .vega-embed {
+  overflow-x: auto;
+}
+
+.conclusion {
+  background-color: #ffffff;
+  padding: 32px;
+  border-radius: 14px;
+  border-left: 6px solid #1f2937;
+}
+
+.data-sources {
+  background-color: #ffffff;
+  padding: 28px;
+  margin-top: 56px;
+  border-radius: 14px;
+  border-left: 6px solid #4b5563;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.data-sources h2 {
+  margin-top: 0;
+}
+
+.data-sources a {
+  color: #1d4ed8;
+  text-decoration: none;
+}
+
+.data-sources a:hover {
+  text-decoration: underline;
+}
+
+/* Centre charts that occupy their own row */
+.chart-full .chart-card > div[id],
+.chart-centered .chart-card > div[id] {
+  display: flex;
+  justify-content: center;
+}
+
+.chart-full .vega-embed,
+.chart-centered .vega-embed {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Keep standalone charts centred inside their cards */
+.chart-full .chart-card > div[id],
+.chart-centered .chart-card > div[id] {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.chart-full .vega-embed,
+.chart-centered .vega-embed {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Prevent paired charts from visually spilling outside their cards */
+.chart-grid-2 .chart-card .vega-embed {
+  max-width: 100%;
+}
+
+/* Centre charts inside side-by-side chart cards too */
+.chart-grid-2 .chart-card > div[id] {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.chart-grid-2 .vega-embed {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Prevent the whole page from creating horizontal scrolling */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Keep Vega output inside its card */
+.chart-card {
+  overflow: hidden;
+}
+
+.chart-card .vega-embed,
+.chart-card .vega-embed > div,
+.chart-card canvas,
+.chart-card svg {
+  max-width: 100%;
+}
+
+@media (max-width: 1350px) {
+  .chart-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+.chart-centered {
+    max-width: none;
+  }
+
+}
+
+@media (max-width: 768px) {
+  main {
+    width: 90%;
+  }
+
+.hero {
+    padding: 40px 8%;
+  }
+
+.hero h1 {
+    font-size: 30px;
+  }
+
+.chart-card,
+  .conclusion,
+  .data-sources {
+    padding: 22px;
+  }
+
+}
