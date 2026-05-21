@@ -1,0 +1,186 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "",
+  "width": 820,
+  "height": 540,
+  "data": {
+    "url": "data/job_vacancies_per_1000_employed_by_industry_aug2025.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          6,
+          4
+        ],
+        "color": "#64748B",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "y": {
+          "datum": 22.41
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "bottom",
+        "dx": 6,
+        "dy": -6,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#64748B"
+      },
+      "encoding": {
+        "x": {
+          "value": 8
+        },
+        "y": {
+          "datum": 22.41
+        },
+        "text": {
+          "value": "All-industries benchmark: 22.41 vacancies per 1,000 employed"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "opacity": 0.88,
+        "stroke": "white",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "x": {
+          "field": "employed_people",
+          "type": "quantitative",
+          "title": "Employed People",
+          "axis": {
+            "format": ",.0f"
+          },
+          "scale": {
+            "zero": true
+          }
+        },
+        "y": {
+          "field": "vacancies_per_1000_employed",
+          "type": "quantitative",
+          "title": "Job Vacancies per 1,000 Employed People",
+          "axis": {
+            "format": ".1f"
+          },
+          "scale": {
+            "zero": true
+          }
+        },
+        "size": {
+          "field": "job_vacancies",
+          "type": "quantitative",
+          "title": "Total Job Vacancies",
+          "scale": {
+            "range": [
+              80,
+              1600
+            ]
+          }
+        },
+        "color": {
+          "field": "relative_to_all_industries",
+          "type": "nominal",
+          "title": "Vacancy Pressure",
+          "scale": {
+            "domain": [
+              "Above all-industries benchmark",
+              "Below all-industries benchmark"
+            ],
+            "range": [
+              "#2563A6",
+              "#9EC3E6"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "industry",
+            "type": "nominal",
+            "title": "Industry"
+          },
+          {
+            "field": "employed_people",
+            "type": "quantitative",
+            "title": "Employed People",
+            "format": ",.0f"
+          },
+          {
+            "field": "job_vacancies",
+            "type": "quantitative",
+            "title": "Job Vacancies",
+            "format": ",.0f"
+          },
+          {
+            "field": "vacancies_per_1000_employed",
+            "type": "quantitative",
+            "title": "Vacancies per 1,000 Employed",
+            "format": ".2f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.industry == 'Administrative and Support Services' || datum.industry == 'Accommodation and Food Services' || datum.industry == 'Health Care and Social Assistance' || datum.industry == 'Professional, Scientific and Technical Services' || datum.industry == 'Retail Trade'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 21,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#1F2937"
+      },
+      "encoding": {
+        "x": {
+          "field": "employed_people",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "vacancies_per_1000_employed",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "industry",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "gridOpacity": 0.25,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "orient": "bottom",
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "text": {
+      "font": "Source Sans 3"
+    }
+  }
+}

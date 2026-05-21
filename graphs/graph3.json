@@ -1,0 +1,74 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "",
+  "width": 455,
+  "height": 380,
+  "data": {
+    "url": "data/australia_unemployment_trend_salm.csv"
+  },
+  "mark": {
+    "type": "line",
+    "point": false
+  },
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "title": "Year",
+      "axis": {
+        "format": "%Y",
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "field": "unemployment_rate",
+      "type": "quantitative",
+      "title": "Unemployment Rate (%)",
+      "scale": {
+        "zero": false
+      }
+    },
+    "tooltip": [
+      {
+        "field": "quarter",
+        "type": "nominal",
+        "title": "Quarter"
+      },
+      {
+        "field": "unemployment_rate",
+        "type": "quantitative",
+        "title": "Unemployment Rate (%)",
+        "format": ".2f"
+      },
+      {
+        "field": "unemployed_persons",
+        "type": "quantitative",
+        "title": "Unemployed Persons",
+        "format": ",.0f"
+      },
+      {
+        "field": "labour_force",
+        "type": "quantitative",
+        "title": "Labour Force",
+        "format": ",.0f"
+      }
+    ]
+  },
+  "config": {
+    "font": "Source Sans 3",
+    "axis": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "text": {
+      "font": "Source Sans 3"
+    },
+    "view": {
+      "stroke": null
+    }
+  }
+}

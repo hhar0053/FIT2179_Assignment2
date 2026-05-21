@@ -1,0 +1,71 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "",
+  "width": 445,
+  "height": 380,
+  "data": {
+    "url": "data/state_unemployment_dec2025.csv"
+  },
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 3
+  },
+  "encoding": {
+    "x": {
+      "field": "state",
+      "type": "nominal",
+      "sort": "-y",
+      "title": "State / Territory",
+      "axis": {
+        "labelAngle": -35
+      }
+    },
+    "y": {
+      "field": "unemployment_rate",
+      "type": "quantitative",
+      "title": "Unemployment Rate (%)"
+    },
+    "tooltip": [
+      {
+        "field": "state",
+        "type": "nominal",
+        "title": "State / Territory"
+      },
+      {
+        "field": "unemployment_rate",
+        "type": "quantitative",
+        "title": "Unemployment Rate (%)",
+        "format": ".2f"
+      },
+      {
+        "field": "unemployed_persons",
+        "type": "quantitative",
+        "title": "Unemployed Persons",
+        "format": ",.0f"
+      },
+      {
+        "field": "labour_force",
+        "type": "quantitative",
+        "title": "Labour Force",
+        "format": ",.0f"
+      }
+    ]
+  },
+  "config": {
+    "font": "Source Sans 3",
+    "axis": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "text": {
+      "font": "Source Sans 3"
+    },
+    "view": {
+      "stroke": null
+    }
+  }
+}

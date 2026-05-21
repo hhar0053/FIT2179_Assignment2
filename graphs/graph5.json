@@ -1,0 +1,91 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "",
+  "width": 430,
+  "height": 360,
+  "data": {
+    "url": "data/employment_indicators_state_dec2025.csv"
+  },
+  "mark": {
+    "type": "rect",
+    "stroke": "white",
+    "strokeWidth": 1
+  },
+  "encoding": {
+    "x": {
+      "field": "indicator",
+      "type": "nominal",
+      "title": "Employment Indicator",
+      "sort": [
+        "Unemployment Rate",
+        "Participation Rate",
+        "Employment-to-Population Ratio",
+        "Underemployment Rate"
+      ],
+      "axis": {
+        "labelAngle": -35,
+        "labelAlign": "right",
+        "labelLimit": 180
+      }
+    },
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "title": "State / Territory"
+    },
+    "color": {
+      "field": "relative_strength",
+      "type": "quantitative",
+      "title": "Relative Strength",
+      "scale": {
+        "scheme": "blues"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "state",
+        "type": "nominal",
+        "title": "State / Territory"
+      },
+      {
+        "field": "indicator",
+        "type": "nominal",
+        "title": "Indicator"
+      },
+      {
+        "field": "value",
+        "type": "quantitative",
+        "title": "Actual Value (%)",
+        "format": ".1f"
+      },
+      {
+        "field": "relative_strength",
+        "type": "quantitative",
+        "title": "Relative Strength",
+        "format": ".1f"
+      }
+    ]
+  },
+  "config": {
+    "font": "Source Sans 3",
+    "axis": {
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "orient": "bottom",
+      "direction": "horizontal",
+      "titleOrient": "top"
+    },
+    "text": {
+      "font": "Source Sans 3"
+    },
+    "view": {
+      "stroke": null
+    }
+  }
+}

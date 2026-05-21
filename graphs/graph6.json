@@ -1,0 +1,124 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "",
+  "width": 760,
+  "height": 420,
+  "data": {
+    "url": "data/bachelor_degree_attainment_state_2025.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "height": 4,
+        "color": "#9EC3E6"
+      },
+      "encoding": {
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "sort": {
+            "field": "bachelor_degree_pct",
+            "order": "descending"
+          },
+          "title": "State / Territory"
+        },
+        "x": {
+          "field": "bachelor_degree_pct",
+          "type": "quantitative",
+          "title": "Share of People Aged 15-74 with a Bachelor Degree or Above (%)",
+          "scale": {
+            "domain": [
+              0,
+              50
+            ]
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 180,
+        "color": "#2563A6"
+      },
+      "encoding": {
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "sort": {
+            "field": "bachelor_degree_pct",
+            "order": "descending"
+          }
+        },
+        "x": {
+          "field": "bachelor_degree_pct",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State / Territory"
+          },
+          {
+            "field": "bachelor_degree_pct",
+            "type": "quantitative",
+            "title": "Bachelor Degree or Above (%)",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 10,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#333333"
+      },
+      "encoding": {
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "sort": {
+            "field": "bachelor_degree_pct",
+            "order": "descending"
+          }
+        },
+        "x": {
+          "field": "bachelor_degree_pct",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "bachelor_degree_pct",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "text": {
+      "font": "Source Sans 3"
+    }
+  }
+}

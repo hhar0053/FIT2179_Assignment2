@@ -1,0 +1,133 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "",
+  "width": 780,
+  "height": 520,
+  "params": [
+    {
+      "name": "StateSelection",
+      "value": "Victoria",
+      "bind": {
+        "input": "select",
+        "options": [
+          "New South Wales",
+          "Victoria",
+          "Queensland",
+          "South Australia",
+          "Western Australia",
+          "Tasmania",
+          "Northern Territory",
+          "Australian Capital Territory"
+        ],
+        "name": "Select state: "
+      }
+    }
+  ],
+  "projection": {
+    "type": "mercator"
+  },
+  "data": {
+    "url": "data/australia_sa2.geojson",
+    "format": {
+      "type": "json",
+      "property": "features"
+    }
+  },
+  "transform": [
+    {
+      "calculate": "toString(datum.properties.SA2_CODE21)",
+      "as": "sa2_code_lookup"
+    },
+    {
+      "lookup": "sa2_code_lookup",
+      "from": {
+        "data": {
+          "url": "data/sa2_unemployment_dec2025.csv",
+          "format": {
+            "type": "csv",
+            "parse": {
+              "sa2_code": "string",
+              "unemployment_rate": "number",
+              "unemployed_persons": "number",
+              "labour_force": "number"
+            }
+          }
+        },
+        "key": "sa2_code",
+        "fields": [
+          "state",
+          "sa2_name",
+          "unemployment_rate",
+          "unemployed_persons",
+          "labour_force"
+        ]
+      }
+    },
+    {
+      "filter": "datum.state == StateSelection"
+    }
+  ],
+  "mark": {
+    "type": "geoshape",
+    "stroke": "white",
+    "strokeWidth": 0.25
+  },
+  "encoding": {
+    "color": {
+      "field": "unemployment_rate",
+      "type": "quantitative",
+      "title": "Unemployment rate (%)",
+      "scale": {
+        "scheme": "reds"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "sa2_name",
+        "type": "nominal",
+        "title": "SA2 Region"
+      },
+      {
+        "field": "state",
+        "type": "nominal",
+        "title": "State/Territory"
+      },
+      {
+        "field": "unemployment_rate",
+        "type": "quantitative",
+        "title": "Unemployment rate (%)",
+        "format": ".1f"
+      },
+      {
+        "field": "unemployed_persons",
+        "type": "quantitative",
+        "title": "Unemployed persons",
+        "format": ",.0f"
+      },
+      {
+        "field": "labour_force",
+        "type": "quantitative",
+        "title": "Labour force",
+        "format": ",.0f"
+      }
+    ]
+  },
+  "config": {
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "legend": {
+      "orient": "right",
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3"
+    },
+    "text": {
+      "font": "Source Sans 3"
+    }
+  }
+}
