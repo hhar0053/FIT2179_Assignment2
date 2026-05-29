@@ -1,0 +1,230 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "",
+  "data": {
+    "url": "data/industry_employment_vs_full_time_earnings_aug2025_top10.csv"
+  },
+  "spacing": 8,
+  "hconcat": [
+    {
+      "width": 360,
+      "height": 460,
+      "title": {
+        "text": "Workforce Size",
+        "color": "#e8c87a",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "anchor": "end",
+        "offset": 6
+      },
+      "mark": {
+        "type": "bar",
+        "color": "#d4b876",
+        "cornerRadiusEnd": 2
+      },
+      "encoding": {
+        "y": {
+          "field": "industry",
+          "type": "nominal",
+          "sort": [
+            "Health Care and Social Assistance",
+            "Professional, Scientific and Technical Services",
+            "Construction",
+            "Retail Trade",
+            "Education and Training",
+            "Public Administration and Safety",
+            "Accommodation and Food Services",
+            "Manufacturing",
+            "Transport, Postal and Warehousing",
+            "Other Services"
+          ],
+          "title": null,
+          "axis": {
+            "labelLimit": 300,
+            "labelFontSize": 11
+          }
+        },
+        "x": {
+          "field": "employed_people",
+          "type": "quantitative",
+          "title": "Employed People",
+          "scale": {
+            "reverse": true,
+            "zero": true
+          },
+          "axis": {
+            "format": ",.0f",
+            "labelFontSize": 10,
+            "titleFontSize": 12
+          }
+        },
+        "tooltip": [
+          {
+            "field": "industry",
+            "type": "nominal",
+            "title": "Industry"
+          },
+          {
+            "field": "employed_people",
+            "type": "quantitative",
+            "title": "Employed People",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "width": 360,
+      "height": 460,
+      "title": {
+        "text": "Median Weekly Earnings",
+        "color": "#e07a4a",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "anchor": "start",
+        "offset": 6
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "bar",
+            "color": "#c97a5a",
+            "cornerRadiusEnd": 2
+          },
+          "encoding": {
+            "y": {
+              "field": "industry",
+              "type": "nominal",
+              "sort": [
+                "Health Care and Social Assistance",
+                "Professional, Scientific and Technical Services",
+                "Construction",
+                "Retail Trade",
+                "Education and Training",
+                "Public Administration and Safety",
+                "Accommodation and Food Services",
+                "Manufacturing",
+                "Transport, Postal and Warehousing",
+                "Other Services"
+              ],
+              "title": null,
+              "axis": {
+                "labels": false,
+                "ticks": false,
+                "domain": false
+              }
+            },
+            "x": {
+              "field": "median_weekly_full_time_earnings",
+              "type": "quantitative",
+              "title": "Median Weekly Full-time Earnings (A$)",
+              "scale": {
+                "zero": true,
+                "domain": [
+                  0,
+                  2300
+                ]
+              },
+              "axis": {
+                "format": "$,.0f",
+                "labelFontSize": 10,
+                "titleFontSize": 12
+              }
+            },
+            "tooltip": [
+              {
+                "field": "industry",
+                "type": "nominal",
+                "title": "Industry"
+              },
+              {
+                "field": "median_weekly_full_time_earnings",
+                "type": "quantitative",
+                "title": "Median Weekly Full-time Earnings",
+                "format": "$,.0f"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "rule",
+            "strokeDash": [
+              5,
+              4
+            ],
+            "color": "#f4f1ea",
+            "strokeWidth": 1.5,
+            "opacity": 0.7
+          },
+          "encoding": {
+            "x": {
+              "datum": 1741
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "dx": 6,
+            "dy": 8,
+            "fontSize": 10,
+            "fontWeight": "bold",
+            "fontStyle": "italic",
+            "color": "#f4f1ea"
+          },
+          "encoding": {
+            "x": {
+              "datum": 1741
+            },
+            "y": {
+              "value": 0
+            },
+            "text": {
+              "value": "All-industries median: $1,741"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "x": "independent",
+      "y": "shared"
+    }
+  },
+  "config": {
+    "background": "#161616",
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelColor": "#c4bfb5",
+      "titleColor": "#f4f1ea",
+      "domainColor": "#2a2a2a",
+      "tickColor": "#a8a08e",
+      "gridColor": "#222222",
+      "gridOpacity": 0.5
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelColor": "#c4bfb5",
+      "titleColor": "#f4f1ea"
+    },
+    "text": {
+      "font": "Source Sans 3",
+      "color": "#f4f1ea"
+    },
+    "title": {
+      "color": "#f4f1ea",
+      "font": "Source Sans 3"
+    }
+  }
+}

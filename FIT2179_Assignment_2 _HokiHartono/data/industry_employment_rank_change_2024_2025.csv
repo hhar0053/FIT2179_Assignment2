@@ -1,0 +1,21 @@
+industry,year,rank,employed_people,change_people,change_pct,change_direction,change_label,rank_2024,rank_2025
+Accommodation and Food Services,2024,6,961307,-4456,-0.5,Decrease,"-0.5% (-4,456)",6,7
+Accommodation and Food Services,2025,7,956851,-4456,-0.5,Decrease,"-0.5% (-4,456)",6,7
+Construction,2024,2,1343736,1619,0.1,Increase,"+0.1% (+1,619)",2,3
+Construction,2025,3,1345355,1619,0.1,Increase,"+0.1% (+1,619)",2,3
+Education and Training,2024,5,1247098,41994,3.4,Increase,"+3.4% (+41,994)",5,5
+Education and Training,2025,5,1289092,41994,3.4,Increase,"+3.4% (+41,994)",5,5
+Health Care and Social Assistance,2024,1,2247958,117749,5.2,Increase,"+5.2% (+117,749)",1,1
+Health Care and Social Assistance,2025,1,2365707,117749,5.2,Increase,"+5.2% (+117,749)",1,1
+Manufacturing,2024,8,890619,-28494,-3.2,Decrease,"-3.2% (-28,494)",8,8
+Manufacturing,2025,8,862125,-28494,-3.2,Decrease,"-3.2% (-28,494)",8,8
+Other Services,2024,10,524702,41266,7.9,Increase,"+7.9% (+41,266)",10,10
+Other Services,2025,10,565968,41266,7.9,Increase,"+7.9% (+41,266)",10,10
+"Professional, Scientific and Technical Services",2024,4,1309127,87397,6.7,Increase,"+6.7% (+87,397)",4,2
+"Professional, Scientific and Technical Services",2025,2,1396524,87397,6.7,Increase,"+6.7% (+87,397)",4,2
+Public Administration and Safety,2024,7,960289,44656,4.7,Increase,"+4.7% (+44,656)",7,6
+Public Administration and Safety,2025,6,1004945,44656,4.7,Increase,"+4.7% (+44,656)",7,6
+Retail Trade,2024,3,1333780,8067,0.6,Increase,"+0.6% (+8,067)",3,4
+Retail Trade,2025,4,1341847,8067,0.6,Increase,"+0.6% (+8,067)",3,4
+"Transport, Postal and Warehousing",2024,9,729533,12605,1.7,Increase,"+1.7% (+12,605)",9,9
+"Transport, Postal and Warehousing",2025,9,742138,12605,1.7,Increase,"+1.7% (+12,605)",9,9

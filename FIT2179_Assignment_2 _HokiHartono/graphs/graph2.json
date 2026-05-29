@@ -1,0 +1,145 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "",
+  "width": 480,
+  "height": 340,
+  "data": {
+    "url": "data/state_unemployment_dec2025.csv"
+  },
+  "transform": [
+    {
+      "calculate": "datum.state === 'Victoria' ? 'Highest unemployment' : (datum.state === 'Australian Capital Territory' ? 'Lowest unemployment' : 'Other states')",
+      "as": "category"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadiusEnd": 3
+      },
+      "encoding": {
+        "x": {
+          "field": "state",
+          "type": "nominal",
+          "sort": "-y",
+          "title": "State / Territory",
+          "axis": {
+            "labelAngle": -35
+          }
+        },
+        "y": {
+          "field": "unemployment_rate",
+          "type": "quantitative",
+          "title": "Unemployment Rate (%)"
+        },
+        "color": {
+          "field": "category",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": [
+              "Highest unemployment",
+              "Lowest unemployment",
+              "Other states"
+            ],
+            "range": [
+              "#e07a4a",
+              "#e8c87a",
+              "#7a6d50"
+            ]
+          },
+          "legend": {
+            "orient": "top-right",
+            "offset": -5,
+            "symbolSize": 100,
+            "padding": 8
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State / Territory"
+          },
+          {
+            "field": "unemployment_rate",
+            "type": "quantitative",
+            "title": "Unemployment Rate (%)",
+            "format": ".2f"
+          },
+          {
+            "field": "unemployed_persons",
+            "type": "quantitative",
+            "title": "Unemployed Persons",
+            "format": ",.0f"
+          },
+          {
+            "field": "labour_force",
+            "type": "quantitative",
+            "title": "Labour Force",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "bottom",
+        "dy": -6,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#f4f1ea"
+      },
+      "encoding": {
+        "x": {
+          "field": "state",
+          "type": "nominal",
+          "sort": "-y"
+        },
+        "y": {
+          "field": "unemployment_rate",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "unemployment_rate",
+          "type": "quantitative",
+          "format": ".2f"
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": "#161616",
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelColor": "#c4bfb5",
+      "titleColor": "#f4f1ea",
+      "domainColor": "#2a2a2a",
+      "tickColor": "#a8a08e",
+      "gridColor": "#222222",
+      "gridOpacity": 0.5,
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelColor": "#c4bfb5",
+      "titleColor": "#f4f1ea",
+      "labelFontSize": 10,
+      "symbolType": "square"
+    },
+    "text": {
+      "font": "Source Sans 3",
+      "color": "#f4f1ea"
+    }
+  }
+}

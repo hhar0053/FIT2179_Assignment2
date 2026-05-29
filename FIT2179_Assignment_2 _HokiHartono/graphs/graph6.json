@@ -1,0 +1,187 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "",
+  "width": 600,
+  "height": 340,
+  "data": {
+    "url": "data/bachelor_degree_attainment_state_2025.csv"
+  },
+  "transform": [
+    {
+      "calculate": "datum.state === 'Australian Capital Territory' ? 'Highest attainment' : (datum.state === 'Tasmania' ? 'Lowest attainment' : 'Other states')",
+      "as": "category"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "height": 4
+      },
+      "encoding": {
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "sort": {
+            "field": "bachelor_degree_pct",
+            "order": "descending"
+          },
+          "title": null,
+          "axis": {
+            "labelFontSize": 11,
+            "labelLimit": 200
+          }
+        },
+        "x": {
+          "field": "bachelor_degree_pct",
+          "type": "quantitative",
+          "title": "Share of People Aged 15-74 with a Bachelor Degree or Above (%)",
+          "scale": {
+            "domain": [
+              0,
+              55
+            ]
+          }
+        },
+        "color": {
+          "field": "category",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Highest attainment",
+              "Lowest attainment",
+              "Other states"
+            ],
+            "range": [
+              "#e8c87a",
+              "#e07a4a",
+              "#7a6d50"
+            ]
+          },
+          "legend": null
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 220,
+        "stroke": "#161616",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "sort": {
+            "field": "bachelor_degree_pct",
+            "order": "descending"
+          }
+        },
+        "x": {
+          "field": "bachelor_degree_pct",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "category",
+          "type": "nominal",
+          "title": "Attainment category",
+          "scale": {
+            "domain": [
+              "Highest attainment",
+              "Lowest attainment",
+              "Other states"
+            ],
+            "range": [
+              "#e8c87a",
+              "#e07a4a",
+              "#7a6d50"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State / Territory"
+          },
+          {
+            "field": "bachelor_degree_pct",
+            "type": "quantitative",
+            "title": "Bachelor Degree or Above (%)",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 14,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#f4f1ea"
+      },
+      "encoding": {
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "sort": {
+            "field": "bachelor_degree_pct",
+            "order": "descending"
+          }
+        },
+        "x": {
+          "field": "bachelor_degree_pct",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "bachelor_degree_pct",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": "#161616",
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelColor": "#c4bfb5",
+      "titleColor": "#f4f1ea",
+      "domainColor": "#2a2a2a",
+      "tickColor": "#a8a08e",
+      "gridColor": "#222222",
+      "gridOpacity": 0.5,
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelColor": "#c4bfb5",
+      "titleColor": "#f4f1ea",
+      "labelFontSize": 11,
+      "symbolType": "circle"
+    },
+    "text": {
+      "font": "Source Sans 3",
+      "color": "#f4f1ea"
+    }
+  },
+  "padding": {
+    "top": 5,
+    "left": 5,
+    "right": 5,
+    "bottom": 5
+  }
+}

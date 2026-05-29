@@ -1,0 +1,161 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "",
+  "width": 380,
+  "height": 300,
+  "data": {
+    "url": "data/employment_indicators_state_dec2025.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "#161616",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "indicator",
+          "type": "nominal",
+          "title": null,
+          "sort": [
+            "Unemployment Rate",
+            "Participation Rate",
+            "Employment-to-Population Ratio",
+            "Underemployment Rate"
+          ],
+          "axis": {
+            "labelAngle": -30,
+            "labelAlign": "right",
+            "labelBaseline": "top",
+            "labelLimit": 180,
+            "labelFontSize": 10,
+            "labelPadding": 6,
+            "orient": "bottom"
+          }
+        },
+        "y": {
+          "field": "state",
+          "type": "nominal",
+          "title": null,
+          "axis": {
+            "labelFontSize": 10,
+            "labelLimit": 200
+          }
+        },
+        "color": {
+          "field": "relative_strength",
+          "type": "quantitative",
+          "title": "Relative Strength",
+          "scale": {
+            "range": [
+              "#3a3327",
+              "#5c4f33",
+              "#836a2e",
+              "#a8893f",
+              "#c9a961",
+              "#e8c87a"
+            ]
+          },
+          "legend": {
+            "orient": "right",
+            "direction": "vertical",
+            "gradientLength": 180,
+            "gradientThickness": 10,
+            "titleOrient": "top",
+            "labelFontSize": 9,
+            "titleFontSize": 10,
+            "offset": 10,
+            "padding": 4
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State / Territory"
+          },
+          {
+            "field": "indicator",
+            "type": "nominal",
+            "title": "Indicator"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Actual Value (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "relative_strength",
+            "type": "quantitative",
+            "title": "Relative Strength",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "x": {
+          "field": "indicator",
+          "type": "nominal",
+          "sort": [
+            "Unemployment Rate",
+            "Participation Rate",
+            "Employment-to-Population Ratio",
+            "Underemployment Rate"
+          ]
+        },
+        "y": {
+          "field": "state",
+          "type": "nominal"
+        },
+        "text": {
+          "field": "value",
+          "type": "quantitative",
+          "format": ".1f"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.relative_strength > 3",
+            "value": "#161616"
+          },
+          "value": "#f4f1ea"
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": "#161616",
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelColor": "#c4bfb5",
+      "titleColor": "#f4f1ea",
+      "domainColor": "#161616",
+      "tickColor": "#161616",
+      "gridColor": "#161616",
+      "gridOpacity": 0
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelColor": "#c4bfb5",
+      "titleColor": "#f4f1ea"
+    },
+    "text": {
+      "font": "Source Sans 3",
+      "color": "#f4f1ea"
+    }
+  }
+}
