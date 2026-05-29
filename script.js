@@ -79,3 +79,7 @@ vegaEmbed(
 "#graph11",
 "graphs/graph11.json",
 ).catch(console.error);
+vegaEmbed(
+"#graph12",
+"graphs/graph12.json",
+).catch(console.error);

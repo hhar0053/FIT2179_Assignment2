@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "",
-  "width": 720,
-  "height": 320,
+  "width": 400,
+  "height": 300,
   "data": {
     "url": "data/labour_force_status_by_qualification_persons_2025.csv"
   },

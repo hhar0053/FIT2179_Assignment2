@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "",
-  "width": 600,
-  "height": 340,
+  "width": 380,
+  "height": 320,
   "data": {
     "url": "data/bachelor_degree_attainment_state_2025.csv"
   },

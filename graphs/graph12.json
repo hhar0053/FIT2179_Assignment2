@@ -1,0 +1,181 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "",
+  "data": {
+    "url": "data/sa2_top_bottom_unemployment_dec2025.csv"
+  },
+  "facet": {
+    "row": {
+      "field": "group",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Highest 10",
+        "Lowest 10"
+      ],
+      "header": {
+        "labelFontSize": 13,
+        "labelFontWeight": "bold",
+        "labelColor": "#e8c87a",
+        "labelAnchor": "start",
+        "labelAlign": "left",
+        "labelPadding": 6
+      }
+    }
+  },
+  "spec": {
+    "width": 720,
+    "height": 200,
+    "layer": [
+      {
+        "mark": {
+          "type": "bar",
+          "cornerRadiusEnd": 3,
+          "height": 13
+        },
+        "encoding": {
+          "y": {
+            "field": "label",
+            "type": "nominal",
+            "sort": {
+              "field": "unemployment_rate",
+              "op": "max",
+              "order": "descending"
+            },
+            "title": null,
+            "axis": {
+              "labelFontSize": 11,
+              "labelLimit": 220
+            }
+          },
+          "x": {
+            "field": "unemployment_rate",
+            "type": "quantitative",
+            "title": "Unemployment Rate (%)",
+            "scale": {
+              "domain": [
+                0,
+                30
+              ]
+            }
+          },
+          "color": {
+            "field": "group",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "Highest 10",
+                "Lowest 10"
+              ],
+              "range": [
+                "#c97a5a",
+                "#e8c87a"
+              ]
+            },
+            "legend": null
+          },
+          "tooltip": [
+            {
+              "field": "sa2_name",
+              "type": "nominal",
+              "title": "SA2 Region"
+            },
+            {
+              "field": "state",
+              "type": "nominal",
+              "title": "State / Territory"
+            },
+            {
+              "field": "unemployment_rate",
+              "type": "quantitative",
+              "title": "Unemployment Rate (%)",
+              "format": ".1f"
+            },
+            {
+              "field": "labour_force",
+              "type": "quantitative",
+              "title": "Labour Force",
+              "format": ",.0f"
+            }
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "middle",
+          "dx": 6,
+          "fontSize": 10.5,
+          "fontWeight": "bold",
+          "color": "#f4f1ea"
+        },
+        "encoding": {
+          "y": {
+            "field": "label",
+            "type": "nominal",
+            "sort": {
+              "field": "unemployment_rate",
+              "op": "max",
+              "order": "descending"
+            }
+          },
+          "x": {
+            "field": "unemployment_rate",
+            "type": "quantitative",
+            "scale": {
+              "domain": [
+                0,
+                30
+              ]
+            }
+          },
+          "text": {
+            "field": "unemployment_rate",
+            "type": "quantitative",
+            "format": ".1f"
+          }
+        }
+      }
+    ]
+  },
+  "resolve": {
+    "scale": {
+      "y": "independent",
+      "x": "shared"
+    }
+  },
+  "config": {
+    "background": "#161616",
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelColor": "#c4bfb5",
+      "titleColor": "#f4f1ea",
+      "domainColor": "#2a2a2a",
+      "tickColor": "#a8a08e",
+      "gridColor": "#222222",
+      "gridOpacity": 0.5,
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelColor": "#c4bfb5",
+      "titleColor": "#f4f1ea"
+    },
+    "text": {
+      "font": "Source Sans 3",
+      "color": "#f4f1ea"
+    },
+    "header": {
+      "titleColor": "#f4f1ea",
+      "labelColor": "#e8c87a"
+    }
+  }
+}

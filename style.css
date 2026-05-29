@@ -589,6 +589,66 @@ h3 {
   letter-spacing: 0.005em;
 }
 
+/* ===== METADATA GRID ===== */
+.hero-byline {
+  margin: 22px 0 0;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.85;
+}
+
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  margin: 22px 0 32px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--black-border);
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.meta-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.meta-value {
+  font-size: 15px;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.sources-heading {
+  font-size: 16px;
+  color: var(--text-primary);
+  margin: 0 0 6px;
+  font-weight: 600;
+}
+
+.data-sources .sources-heading + .ai-declaration,
+.data-sources ul + .sources-heading {
+  margin-top: 28px;
+}
+
+.ai-declaration {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 760px;
+}
+
 /* ===== DATA SOURCES ===== */
 .data-sources {
   background-color: var(--black-card);
