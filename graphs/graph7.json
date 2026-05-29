@@ -1,86 +1,93 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "",
-  "width": 790,
-  "height": 360,
+  "width": 720,
+  "height": 320,
   "data": {
     "url": "data/labour_force_status_by_qualification_persons_2025.csv"
   },
-  "mark": {
-    "type": "bar"
-  },
-  "encoding": {
-    "y": {
-      "field": "qualification_group",
-      "type": "nominal",
-      "sort": [
-        "Bachelor Degree",
-        "Certificate III/IV",
-        "Without a Non-school Qualification"
-      ],
-      "title": "Qualification Group",
-      "axis": {
-        "labelLimit": 320
-      }
-    },
-    "x": {
-      "field": "percentage",
-      "type": "quantitative",
-      "stack": "normalize",
-      "title": "Share of People Aged 15–74 (%)",
-      "axis": {
-        "format": ".0%"
-      }
-    },
-    "color": {
-      "field": "labour_force_status",
-      "type": "nominal",
-      "sort": [
-        "Employed Full-time",
-        "Employed Part-time",
-        "Unemployed",
-        "Not in Labour Force"
-      ],
-      "title": "Labour Force Status",
-      "scale": {
-        "domain": [
-          "Employed Full-time",
-          "Employed Part-time",
-          "Not in Labour Force",
-          "Unemployed"
-        ],
-        "range": [
-          "#2563A6",
-          "#7FB3E6",
-          "#C7D2E3",
-          "#D46A6A"
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "stroke": "#161616",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "y": {
+          "field": "qualification_group",
+          "type": "nominal",
+          "sort": [
+            "Bachelor Degree",
+            "Certificate III/IV",
+            "Without a Non-school Qualification"
+          ],
+          "title": "Qualification Group",
+          "axis": {
+            "labelLimit": 320
+          }
+        },
+        "x": {
+          "field": "percentage",
+          "type": "quantitative",
+          "stack": "normalize",
+          "title": "Share of People Aged 15\u201374 (%)",
+          "axis": {
+            "format": ".0%"
+          }
+        },
+        "color": {
+          "field": "labour_force_status",
+          "type": "nominal",
+          "sort": [
+            "Employed Full-time",
+            "Employed Part-time",
+            "Unemployed",
+            "Not in Labour Force"
+          ],
+          "title": "Labour Force Status",
+          "scale": {
+            "domain": [
+              "Employed Full-time",
+              "Employed Part-time",
+              "Not in Labour Force",
+              "Unemployed"
+            ],
+            "range": [
+              "#e8c87a",
+              "#a08660",
+              "#5c584f",
+              "#c97a5a"
+            ]
+          }
+        },
+        "order": {
+          "field": "labour_force_status",
+          "sort": "ascending"
+        },
+        "tooltip": [
+          {
+            "field": "qualification_group",
+            "type": "nominal",
+            "title": "Qualification Group"
+          },
+          {
+            "field": "labour_force_status",
+            "type": "nominal",
+            "title": "Labour Force Status"
+          },
+          {
+            "field": "percentage",
+            "type": "quantitative",
+            "title": "Percentage",
+            "format": ".1f"
+          }
         ]
       }
-    },
-    "order": {
-      "field": "labour_force_status",
-      "sort": "ascending"
-    },
-    "tooltip": [
-      {
-        "field": "qualification_group",
-        "type": "nominal",
-        "title": "Qualification Group"
-      },
-      {
-        "field": "labour_force_status",
-        "type": "nominal",
-        "title": "Labour Force Status"
-      },
-      {
-        "field": "percentage",
-        "type": "quantitative",
-        "title": "Percentage",
-        "format": ".1f"
-      }
-    ]
-  },
+    }
+  ],
   "config": {
+    "background": "#161616",
     "font": "Source Sans 3",
     "view": {
       "stroke": null
@@ -89,17 +96,28 @@
       "labelFontSize": 12,
       "titleFontSize": 13,
       "labelFont": "Source Sans 3",
-      "titleFont": "Source Sans 3"
+      "titleFont": "Source Sans 3",
+      "labelColor": "#c4bfb5",
+      "titleColor": "#f4f1ea",
+      "domainColor": "#2a2a2a",
+      "tickColor": "#a8a08e",
+      "gridColor": "#222222",
+      "gridOpacity": 0.5
     },
     "legend": {
       "labelFontSize": 11,
       "titleFontSize": 12,
       "orient": "bottom",
       "labelFont": "Source Sans 3",
-      "titleFont": "Source Sans 3"
+      "titleFont": "Source Sans 3",
+      "labelColor": "#c4bfb5",
+      "titleColor": "#f4f1ea",
+      "symbolSize": 120,
+      "padding": 10
     },
     "text": {
-      "font": "Source Sans 3"
+      "font": "Source Sans 3",
+      "color": "#f4f1ea"
     }
   }
 }

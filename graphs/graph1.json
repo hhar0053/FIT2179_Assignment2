@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "",
-  "width": 780,
-  "height": 520,
+  "width": 640,
+  "height": 420,
   "params": [
     {
       "name": "StateSelection",
@@ -69,8 +69,8 @@
   ],
   "mark": {
     "type": "geoshape",
-    "stroke": "white",
-    "strokeWidth": 0.25
+    "stroke": "#6b6357",
+    "strokeWidth": 0.5
   },
   "encoding": {
     "color": {
@@ -78,7 +78,19 @@
       "type": "quantitative",
       "title": "Unemployment rate (%)",
       "scale": {
-        "scheme": "reds"
+        "range": ["#f0e6c8", "#d4b876", "#a8893f", "#6b5320", "#473615", "#2e2410"]
+      },
+      "legend": {
+        "orient": "right",
+        "gradientLength": 200,
+        "gradientThickness": 10,
+        "labelFontSize": 10,
+        "titleFontSize": 11,
+        "labelColor": "#c4bfb5",
+        "titleColor": "#f4f1ea",
+        "offset": 8,
+        "padding": 6,
+        "titleLimit": 200
       }
     },
     "tooltip": [
@@ -119,15 +131,32 @@
     },
     "axis": {
       "labelFont": "Source Sans 3",
-      "titleFont": "Source Sans 3"
+      "titleFont": "Source Sans 3",
+      "labelColor": "#c4bfb5",
+      "titleColor": "#f4f1ea",
+      "domainColor": "#2a2a2a",
+      "tickColor": "#a8a08e",
+      "gridColor": "#222222",
+      "gridOpacity": 0.5,
+      "domainWidth": 1,
+      "tickWidth": 1
     },
     "legend": {
       "orient": "right",
       "labelFont": "Source Sans 3",
-      "titleFont": "Source Sans 3"
+      "titleFont": "Source Sans 3",
+      "labelColor": "#c4bfb5",
+      "titleColor": "#f4f1ea"
     },
     "text": {
-      "font": "Source Sans 3"
+      "font": "Source Sans 3",
+      "color": "#f4f1ea"
+    },
+    "background": "#161616",
+    "title": {
+      "color": "#f4f1ea",
+      "font": "Source Sans 3",
+      "fontSize": 14
     }
   }
 }

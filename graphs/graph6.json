@@ -1,17 +1,22 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "",
-  "width": 760,
-  "height": 420,
+  "width": 600,
+  "height": 340,
   "data": {
     "url": "data/bachelor_degree_attainment_state_2025.csv"
   },
+  "transform": [
+    {
+      "calculate": "datum.state === 'Australian Capital Territory' ? 'Highest attainment' : (datum.state === 'Tasmania' ? 'Lowest attainment' : 'Other states')",
+      "as": "category"
+    }
+  ],
   "layer": [
     {
       "mark": {
         "type": "bar",
-        "height": 4,
-        "color": "#9EC3E6"
+        "height": 4
       },
       "encoding": {
         "y": {
@@ -21,7 +26,11 @@
             "field": "bachelor_degree_pct",
             "order": "descending"
           },
-          "title": "State / Territory"
+          "title": null,
+          "axis": {
+            "labelFontSize": 11,
+            "labelLimit": 200
+          }
         },
         "x": {
           "field": "bachelor_degree_pct",
@@ -30,9 +39,26 @@
           "scale": {
             "domain": [
               0,
-              50
+              55
             ]
           }
+        },
+        "color": {
+          "field": "category",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Highest attainment",
+              "Lowest attainment",
+              "Other states"
+            ],
+            "range": [
+              "#e8c87a",
+              "#e07a4a",
+              "#7a6d50"
+            ]
+          },
+          "legend": null
         }
       }
     },
@@ -40,8 +66,9 @@
       "mark": {
         "type": "point",
         "filled": true,
-        "size": 180,
-        "color": "#2563A6"
+        "size": 220,
+        "stroke": "#161616",
+        "strokeWidth": 1.5
       },
       "encoding": {
         "y": {
@@ -55,6 +82,24 @@
         "x": {
           "field": "bachelor_degree_pct",
           "type": "quantitative"
+        },
+        "color": {
+          "field": "category",
+          "type": "nominal",
+          "title": "Attainment category",
+          "scale": {
+            "domain": [
+              "Highest attainment",
+              "Lowest attainment",
+              "Other states"
+            ],
+            "range": [
+              "#e8c87a",
+              "#e07a4a",
+              "#7a6d50"
+            ]
+          },
+          "legend": null
         },
         "tooltip": [
           {
@@ -76,10 +121,10 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "dx": 10,
+        "dx": 14,
         "fontSize": 12,
         "fontWeight": "bold",
-        "color": "#333333"
+        "color": "#f4f1ea"
       },
       "encoding": {
         "y": {
@@ -103,22 +148,40 @@
     }
   ],
   "config": {
+    "background": "#161616",
     "font": "Source Sans 3",
     "view": {
       "stroke": null
     },
     "axis": {
-      "labelFontSize": 12,
-      "titleFontSize": 13,
       "labelFont": "Source Sans 3",
-      "titleFont": "Source Sans 3"
+      "titleFont": "Source Sans 3",
+      "labelColor": "#c4bfb5",
+      "titleColor": "#f4f1ea",
+      "domainColor": "#2a2a2a",
+      "tickColor": "#a8a08e",
+      "gridColor": "#222222",
+      "gridOpacity": 0.5,
+      "labelFontSize": 11,
+      "titleFontSize": 12
     },
     "legend": {
       "labelFont": "Source Sans 3",
-      "titleFont": "Source Sans 3"
+      "titleFont": "Source Sans 3",
+      "labelColor": "#c4bfb5",
+      "titleColor": "#f4f1ea",
+      "labelFontSize": 11,
+      "symbolType": "circle"
     },
     "text": {
-      "font": "Source Sans 3"
+      "font": "Source Sans 3",
+      "color": "#f4f1ea"
     }
+  },
+  "padding": {
+    "top": 5,
+    "left": 5,
+    "right": 5,
+    "bottom": 5
   }
 }

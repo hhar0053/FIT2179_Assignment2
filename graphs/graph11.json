@@ -1,18 +1,23 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "",
-  "width": 860,
-  "height": 620,
+  "width": 800,
+  "height": 480,
   "data": {
     "url": "data/industry_opportunity_parallel_coordinates_aug2025.csv"
   },
+  "transform": [
+    {
+      "calculate": "datum.industry === 'Professional, Scientific and Technical Services' ? 'Top earnings' : (datum.industry === 'Health Care and Social Assistance' ? 'Top workforce' : (datum.industry === 'Accommodation and Food Services' ? 'Top vacancy pressure' : 'Other industries'))",
+      "as": "highlight"
+    }
+  ],
   "layer": [
     {
       "mark": {
         "type": "line",
         "strokeWidth": 2.5,
-        "opacity": 0.72,
-        "color": "#2563A6"
+        "opacity": 0.85
       },
       "encoding": {
         "x": {
@@ -26,7 +31,7 @@
           "title": null,
           "axis": {
             "labelAngle": 0,
-            "labelFontSize": 13,
+            "labelFontSize": 12,
             "labelFontWeight": "bold"
           }
         },
@@ -54,13 +59,40 @@
               10
             ],
             "labelExpr": "'#' + datum.value",
-            "labelFontSize": 12,
-            "titleFontSize": 13
+            "labelFontSize": 11,
+            "titleFontSize": 12
           }
         },
         "detail": {
           "field": "industry",
           "type": "nominal"
+        },
+        "color": {
+          "field": "highlight",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": [
+              "Top earnings",
+              "Top workforce",
+              "Top vacancy pressure",
+              "Other industries"
+            ],
+            "range": [
+              "#e8c87a",
+              "#d4b876",
+              "#e07a4a",
+              "#5c584f"
+            ]
+          },
+          "legend": {
+            "orient": "top",
+            "labelFontSize": 10,
+            "padding": 4,
+            "offset": 0,
+            "symbolType": "stroke",
+            "symbolStrokeWidth": 3
+          }
         },
         "tooltip": [
           {
@@ -104,10 +136,9 @@
       "mark": {
         "type": "point",
         "filled": true,
-        "size": 100,
-        "stroke": "white",
-        "strokeWidth": 1,
-        "color": "#2563A6"
+        "size": 110,
+        "stroke": "#161616",
+        "strokeWidth": 1.2
       },
       "encoding": {
         "x": {
@@ -133,24 +164,25 @@
           "field": "industry",
           "type": "nominal"
         },
-        "tooltip": [
-          {
-            "field": "industry",
-            "type": "nominal",
-            "title": "Industry"
+        "color": {
+          "field": "highlight",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Top earnings",
+              "Top workforce",
+              "Top vacancy pressure",
+              "Other industries"
+            ],
+            "range": [
+              "#e8c87a",
+              "#d4b876",
+              "#e07a4a",
+              "#5c584f"
+            ]
           },
-          {
-            "field": "metric",
-            "type": "nominal",
-            "title": "Indicator"
-          },
-          {
-            "field": "rank",
-            "type": "quantitative",
-            "title": "Rank",
-            "format": ".0f"
-          }
-        ]
+          "legend": null
+        }
       }
     },
     {
@@ -159,7 +191,7 @@
           "filter": "datum.metric == 'Workforce Size'"
         },
         {
-          "calculate": "datum.industry == 'Professional, Scientific and Technical Services' ? 'Professional, Scientific & Tech. Services' : datum.industry",
+          "calculate": "datum.industry == 'Professional, Scientific and Technical Services' ? 'Professional, Scientific & Tech.' : datum.industry",
           "as": "industry_label"
         }
       ],
@@ -168,9 +200,9 @@
         "align": "left",
         "baseline": "middle",
         "dx": 12,
-        "fontSize": 11,
+        "fontSize": 10.5,
         "fontWeight": "bold",
-        "color": "#1F2937"
+        "color": "#f4f1ea"
       },
       "encoding": {
         "x": {
@@ -200,24 +232,30 @@
     }
   ],
   "config": {
+    "background": "#161616",
     "font": "Source Sans 3",
     "view": {
       "stroke": null
     },
     "axis": {
-      "gridOpacity": 0.25,
       "labelFont": "Source Sans 3",
-      "titleFont": "Source Sans 3"
+      "titleFont": "Source Sans 3",
+      "labelColor": "#c4bfb5",
+      "titleColor": "#f4f1ea",
+      "domainColor": "#2a2a2a",
+      "tickColor": "#a8a08e",
+      "gridColor": "#222222",
+      "gridOpacity": 0.5
     },
     "legend": {
-      "labelFontSize": 11,
-      "titleFontSize": 12,
-      "orient": "bottom",
       "labelFont": "Source Sans 3",
-      "titleFont": "Source Sans 3"
+      "titleFont": "Source Sans 3",
+      "labelColor": "#c4bfb5",
+      "titleColor": "#f4f1ea"
     },
     "text": {
-      "font": "Source Sans 3"
+      "font": "Source Sans 3",
+      "color": "#f4f1ea"
     }
   }
 }

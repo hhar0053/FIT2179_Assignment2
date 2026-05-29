@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "",
-  "width": 860,
-  "height": 620,
+  "width": 780,
+  "height": 480,
   "data": {
     "url": "data/industry_employment_rank_change_2024_2025.csv"
   },
@@ -16,11 +16,14 @@
         "x": {
           "field": "year",
           "type": "ordinal",
-          "title": "Year",
+          "title": null,
           "axis": {
             "labelAngle": 0,
-            "labelFontSize": 13,
-            "titleFontSize": 14
+            "labelFontSize": 12,
+            "labelFontWeight": "bold",
+            "labelPadding": 8,
+            "domain": false,
+            "ticks": false
           }
         },
         "y": {
@@ -47,8 +50,8 @@
               10
             ],
             "labelExpr": "'#' + datum.value",
-            "labelFontSize": 12,
-            "titleFontSize": 14
+            "labelFontSize": 11,
+            "titleFontSize": 12
           }
         },
         "detail": {
@@ -65,9 +68,20 @@
               "Decrease"
             ],
             "range": [
-              "#2563A6",
-              "#D46A6A"
+              "#d4b876",
+              "#e07a4a"
             ]
+          },
+          "legend": {
+            "orient": "top",
+            "direction": "horizontal",
+            "labelFontSize": 11,
+            "titleFontSize": 11,
+            "symbolType": "stroke",
+            "symbolStrokeWidth": 3,
+            "symbolSize": 200,
+            "padding": 8,
+            "offset": 0
           }
         },
         "tooltip": [
@@ -138,8 +152,8 @@
               "Decrease"
             ],
             "range": [
-              "#2563A6",
-              "#D46A6A"
+              "#d4b876",
+              "#e07a4a"
             ]
           },
           "legend": null
@@ -152,7 +166,7 @@
           "filter": "datum.year == 2024"
         },
         {
-          "calculate": "datum.industry == 'Professional, Scientific and Technical Services' ? 'Professional, Scientific & Tech. Services' : datum.industry",
+          "calculate": "datum.industry == 'Professional, Scientific and Technical Services' ? 'Professional, Scientific & Tech.' : datum.industry",
           "as": "industry_left_label"
         }
       ],
@@ -160,10 +174,10 @@
         "type": "text",
         "align": "right",
         "baseline": "middle",
-        "dx": -8,
+        "dx": -10,
         "fontSize": 10,
         "fontWeight": "bold",
-        "color": "#1F2937"
+        "color": "#f4f1ea"
       },
       "encoding": {
         "x": {
@@ -196,10 +210,10 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "dx": 12,
+        "dx": 14,
         "fontSize": 11,
         "fontWeight": "bold",
-        "color": "#1F2937"
+        "color": "#f4f1ea"
       },
       "encoding": {
         "x": {
@@ -232,11 +246,11 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "dx": 12,
+        "dx": 14,
         "dy": 14,
         "fontSize": 10,
         "fontStyle": "italic",
-        "color": "#475569"
+        "color": "#a8a08e"
       },
       "encoding": {
         "x": {
@@ -261,24 +275,38 @@
     }
   ],
   "config": {
+    "background": "#161616",
     "font": "Source Sans 3",
     "view": {
       "stroke": null
     },
     "axis": {
-      "gridOpacity": 0.25,
+      "gridOpacity": 0,
       "labelFont": "Source Sans 3",
-      "titleFont": "Source Sans 3"
+      "titleFont": "Source Sans 3",
+      "labelColor": "#c4bfb5",
+      "titleColor": "#f4f1ea",
+      "domainColor": "#2a2a2a",
+      "tickColor": "#a8a08e",
+      "gridColor": "#222222"
     },
     "legend": {
       "labelFontSize": 11,
       "titleFontSize": 12,
-      "orient": "bottom",
       "labelFont": "Source Sans 3",
-      "titleFont": "Source Sans 3"
+      "titleFont": "Source Sans 3",
+      "labelColor": "#c4bfb5",
+      "titleColor": "#f4f1ea"
     },
     "text": {
-      "font": "Source Sans 3"
+      "font": "Source Sans 3",
+      "color": "#f4f1ea"
+    },
+    "padding": {
+      "left": 5,
+      "right": 5,
+      "top": 10,
+      "bottom": 30
     }
   }
 }

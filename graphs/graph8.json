@@ -4,14 +4,23 @@
   "data": {
     "url": "data/industry_employment_vs_full_time_earnings_aug2025_top10.csv"
   },
-  "spacing": 10,
+  "spacing": 8,
   "hconcat": [
     {
-      "width": 370,
-      "height": 530,
+      "width": 360,
+      "height": 460,
+      "title": {
+        "text": "Workforce Size",
+        "color": "#e8c87a",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "anchor": "end",
+        "offset": 6
+      },
       "mark": {
         "type": "bar",
-        "color": "#2563A6"
+        "color": "#d4b876",
+        "cornerRadiusEnd": 2
       },
       "encoding": {
         "y": {
@@ -32,7 +41,7 @@
           "title": null,
           "axis": {
             "labelLimit": 300,
-            "labelFontSize": 12
+            "labelFontSize": 11
           }
         },
         "x": {
@@ -45,8 +54,8 @@
           },
           "axis": {
             "format": ",.0f",
-            "labelFontSize": 11,
-            "titleFontSize": 13
+            "labelFontSize": 10,
+            "titleFontSize": 12
           }
         },
         "tooltip": [
@@ -65,52 +74,22 @@
       }
     },
     {
-      "width": 370,
-      "height": 530,
+      "width": 360,
+      "height": 460,
+      "title": {
+        "text": "Median Weekly Earnings",
+        "color": "#e07a4a",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "anchor": "start",
+        "offset": 6
+      },
       "layer": [
         {
           "mark": {
-            "type": "rule",
-            "strokeDash": [
-              6,
-              4
-            ],
-            "color": "#64748B",
-            "strokeWidth": 2
-          },
-          "encoding": {
-            "x": {
-              "datum": 1741
-            }
-          }
-        },
-        {
-          "mark": {
-            "type": "text",
-            "align": "left",
-            "baseline": "top",
-            "dx": 6,
-            "dy": 10,
-            "fontSize": 11,
-            "fontWeight": "bold",
-            "color": "#64748B"
-          },
-          "encoding": {
-            "x": {
-              "datum": 1741
-            },
-            "y": {
-              "value": 0
-            },
-            "text": {
-              "value": "All-industries median: $1,741"
-            }
-          }
-        },
-        {
-          "mark": {
             "type": "bar",
-            "color": "#7FB3E6"
+            "color": "#c97a5a",
+            "cornerRadiusEnd": 2
           },
           "encoding": {
             "y": {
@@ -148,8 +127,8 @@
               },
               "axis": {
                 "format": "$,.0f",
-                "labelFontSize": 11,
-                "titleFontSize": 13
+                "labelFontSize": 10,
+                "titleFontSize": 12
               }
             },
             "tooltip": [
@@ -166,6 +145,47 @@
               }
             ]
           }
+        },
+        {
+          "mark": {
+            "type": "rule",
+            "strokeDash": [
+              5,
+              4
+            ],
+            "color": "#f4f1ea",
+            "strokeWidth": 1.5,
+            "opacity": 0.7
+          },
+          "encoding": {
+            "x": {
+              "datum": 1741
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "dx": 6,
+            "dy": 8,
+            "fontSize": 10,
+            "fontWeight": "bold",
+            "fontStyle": "italic",
+            "color": "#f4f1ea"
+          },
+          "encoding": {
+            "x": {
+              "datum": 1741
+            },
+            "y": {
+              "value": 0
+            },
+            "text": {
+              "value": "All-industries median: $1,741"
+            }
+          }
         }
       ]
     }
@@ -177,16 +197,33 @@
     }
   },
   "config": {
+    "background": "#161616",
     "font": "Source Sans 3",
     "view": {
       "stroke": null
     },
     "axis": {
-      "gridOpacity": 0.25,
       "labelFont": "Source Sans 3",
-      "titleFont": "Source Sans 3"
+      "titleFont": "Source Sans 3",
+      "labelColor": "#c4bfb5",
+      "titleColor": "#f4f1ea",
+      "domainColor": "#2a2a2a",
+      "tickColor": "#a8a08e",
+      "gridColor": "#222222",
+      "gridOpacity": 0.5
+    },
+    "legend": {
+      "labelFont": "Source Sans 3",
+      "titleFont": "Source Sans 3",
+      "labelColor": "#c4bfb5",
+      "titleColor": "#f4f1ea"
     },
     "text": {
+      "font": "Source Sans 3",
+      "color": "#f4f1ea"
+    },
+    "title": {
+      "color": "#f4f1ea",
       "font": "Source Sans 3"
     }
   }
